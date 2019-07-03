@@ -1,18 +1,18 @@
 module.exports = (Franz) => {
-  const getMessages = function getMessages() {
+  const getMessages = () => {
     const muteSelector = '.DQy0Rb';
 
     // get unread messages
     let directCount = 0;
     document.querySelectorAll('.eM5l9e.FVKzAb').forEach((node) => {
       // Hangouts Chat overrides the muted indicator when there is a direct mention
-      if (!node.closest('content[role="listitem"]').querySelector(muteSelector)) {
+      if (!node.closest('span[role="listitem"]').querySelector(muteSelector)) {
         directCount += 1;
       }
     });
     let indirectCount = 0;
     document.querySelectorAll('.PL5Wwe.H7du2 .t5F5nf').forEach((node) => {
-      if (!node.closest('content[role="listitem"]').querySelector(muteSelector)) {
+      if (!node.closest('span[role="listitem"]').querySelector(muteSelector)) {
         indirectCount = +1;
       }
     });
